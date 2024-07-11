@@ -16,20 +16,26 @@ struct ContentView: View {
         // MARK: - BODY
         NavigationView {
             List {
-              CoverImageView()
+                CoverImageView()
                     .frame(height: 300)
                     .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                 
                 ForEach(animals) { animal in
-                    AnimalListItemView(animal: animal)
-                }
-                
-            }//: List
-            .navigationBarTitle("Africa", displayMode: .large)
-        }//: Navigation
+                    NavigationLink(destination: AnimalDetailView(animal: animal))  {
+                        AnimalListItemView(animal: animal)
+                    } //Link
+                } //Loop
+                }//: List
+                .navigationBarTitle("Africa", displayMode: .large)
+            }//: Navigation
+        }
     }
-}
 
-#Preview {
-    ContentView()
-}
+    
+    struct ContentView_Preview: PreviewProvider {
+        static var previews: some View {
+            ContentView()
+                .previewDevice("iPhone 15 Pro")
+        }
+    }
+
