@@ -19,6 +19,7 @@ struct VideoListView: View {
                 ForEach(videos) { item in
                     VideoListItemView(video: item)
                 }
+                
             } //: LIST
         } //: NAVIGATION
     }
