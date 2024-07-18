@@ -20,3 +20,5 @@ struct NationalParkLocation: Codable, Identifiable {
         CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
 }
+
+
