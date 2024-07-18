@@ -30,10 +30,11 @@ struct MapView: View {
                 //    Marker(item.name, coordinate: item.location)
                 
                 Annotation(item.name, coordinate: item.location) {
-                    Image("logo")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 32, height: 32, alignment: .center)
+                    MapAnnotationView(location: item)
+//                    Image("logo")
+//                        .resizable()
+//                        .scaledToFit()
+//                        .frame(width: 32, height: 32, alignment: .center)
                 } //: ANNOTATION
             }
             
