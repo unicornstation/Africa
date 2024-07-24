@@ -51,7 +51,7 @@ struct MotionAnimationView: View {
                             x: randomCoordinate(max: geometry.size.width),
                             y: randomCoordinate(max: geometry.size.height)
                     )
-                        .animation(Animation.interpolatingSpring(stiffness: 0.5, damping: 0.5)
+                        .animation(.interpolatingSpring(stiffness: 0.5, damping: 0.5)
                             .repeatForever()
                             .speed(randomSpeed())
                             .delay(randomDelay()),
