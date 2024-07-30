@@ -2,3 +2,9 @@
 /Africa/Videos
 /Africa/Data
 *.xcodeproj
+
+Stickers/Stickers.xcassets/
+
+Stickers/Info.plist
+
+Stickers/
