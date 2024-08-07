@@ -11,13 +11,17 @@ import MapKit
 struct InsetMapView: View {
     // MARK: - PROPERTIES
     
-    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 6.600286, longitude: 16.4377599), span: MKCoordinateSpan(latitudeDelta: 60.0, longitudeDelta: 60.0))
+   // @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 6.600286, longitude: 16.4377599), span: MKCoordinateSpan(latitudeDelta: 60.0, longitudeDelta: 60.0))
+    @State private var cameraPosition = MapCameraPosition.region(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 6.600286, longitude: 16.4377599), span: MKCoordinateSpan(latitudeDelta: 60.0, longitudeDelta: 60.0)))
     
     // MARK: - BODY
     
     var body: some View {
-     // Map(coordinateRegion: $region)
-        Map(initialPosition: .region(region))
+        
+       /* 'init(coordinateRegion:interactionModes:showsUserLocation:userTrackingMode:)' was deprecated in iOS 17.0: Use Map initializers that take a MapContentBuilder instead.
+     Map(coordinateRegion: $region) */
+        
+        Map(position: $cameraPosition)
             .overlay(NavigationLink(destination: MapView()) {
                     HStack {
                         Image(systemName: "mappin.circle")
@@ -38,12 +42,11 @@ struct InsetMapView: View {
                 .padding(12)
                      , alignment: .topLeading
                 )
-            
-        
-            .frame(height: 256)
+                    .frame(height: 256)
             .cornerRadius(12)
     }
 }
+
 // MARK: - PREVIEW
 struct InsetMapView_Preview: PreviewProvider {
     
